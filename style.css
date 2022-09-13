@@ -1,0 +1,229 @@
+body {
+	font-family: monospace;
+	margin: 0;
+}
+
+main {
+	margin: 8px;
+	min-height: calc(100vh - 82px);
+}
+
+footer {
+	background-color: #ddd;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+}
+
+footer p {
+	padding-left: 10px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+footer p:first-child {
+	padding-top: 5px;
+}
+
+footer p:last-child {
+	padding-bottom: 5px;
+}
+
+div#edit-header *:last-child {
+	margin-bottom: 10px;
+}
+
+a, a:visited {
+	/* Make unvisited and visited link colors consistent */
+	color: blue; 
+	
+	/* Make real and onclick links consistent */
+	text-decoration: underline; 
+	cursor: pointer;
+}
+
+dialog {
+	border: none;
+	box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.5);
+	width: 75%;
+}
+
+dialog::backdrop {
+	backdrop-filter: blur(3px);
+}
+
+dialog h1 {
+	text-align: center;
+}
+
+dialog a#close {
+	position: absolute;
+	right: 6px;
+	top: 4px;
+	color: red;
+	text-decoration: none;
+	user-select: none;
+	-webkit-user-select: none; /* Safari workaround */
+}
+
+dialog a#close:hover {
+	text-decoration: underline;
+}
+
+dialog label {
+	user-select:  none;
+	-webkit-user-select: none;
+}
+
+button {
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+nav *:not(:last-child), button:not(:last-child) {
+	margin-right: 5px;
+}
+
+div#edit-header {
+	margin-bottom: 5px;
+}
+
+table {
+	table-layout: fixed;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+/*
+table, td {
+	border: 1px solid black;
+}
+*/
+
+td {
+	overflow: wrap;
+	overflow-wrap: break-word;
+	vertical-align: top;
+	padding: 5px;
+}
+
+table tr:first-child td.term {
+	width: 40%;
+}
+
+table tr:first-child td.definition {
+	width: 50%;
+}
+
+table tr:first-child td.controls {
+	width: 10%;
+}
+
+/* Alternate row colors/zebra striping */
+table tr:nth-child(odd) {
+	background-color: #efe;
+}
+
+table tr:nth-child(even) {
+	background-color: #fff;
+}
+
+input#term-input, input#definition-input {
+	width: 95%;
+}
+
+.flashcard {
+	box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
+	width: 75vh;
+	min-height: 40vh;
+	margin: auto;
+	margin-bottom: 15px;
+	padding: 15px;
+	font-size: 3em;
+	
+	perspective: 1000px; /* make flipping look 3d */
+}
+
+.flashcard.show-defn .flashcard-inner {
+	transform: rotateX(180deg);
+}
+
+.flashcard-inner, .term, .definition {
+	width: 100%;
+	height: 100%;
+}
+
+.flashcard-inner {
+	position: relative;
+	
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	
+	line-height: 100%;
+	text-align: center;
+}
+
+.flashcard-inner .term, .flashcard-inner .definition {
+	backface-visibility: hidden;
+	line-height: 1.5;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.flashcard-inner .term {
+	z-index: 2;
+	transform: rotateX(0deg);
+}
+
+.flashcard-inner .definition {
+	transform: rotateX(180deg);
+}
+
+/* https://stackoverflow.com/a/40219144 */
+
+/* For skipping transitions */
+.notransition {
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  -moz-transition: none !important;
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+
+#test-options {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	border: none;
+	background-color: #405ab0;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+dialog.test-options p input {
+	margin-right: 5px;
+}
+
+dialog.test-options h3 {
+	margin-bottom: 5px;
+}
+
+dialog.test-options p {
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+p.error {
+	color: red;
+}
+
+span.tooltip {
+	margin-left: 5px;
+	cursor: pointer;
+	
+	text-decoration: underline;
+	color: #aaa;
+	
+	user-select: none;
+	-webkit-user-select: none;
+}
